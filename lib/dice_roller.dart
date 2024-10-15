@@ -19,7 +19,11 @@ class _DiceRollerState extends State<DiceRoller> {
 
   void rollDice() {
     setState(() {
-      currDiceRoll = randomizer.nextInt(6) + 1;
+      var nextDiceRoll = randomizer.nextInt(6) + 1;
+      while(nextDiceRoll == currDiceRoll) {
+        nextDiceRoll = randomizer.nextInt(6) + 1;
+      }
+      currDiceRoll = nextDiceRoll;
     });
   }
 
